@@ -1,1 +1,2 @@
-print("Привет, мир!")
+phrase = input("Введите строку: ")
+print(phrase)
