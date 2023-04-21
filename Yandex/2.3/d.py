@@ -1,4 +1,4 @@
-nstart = int(input())
+start = int(input())
 end = int(input())
 
 if start >= end:
