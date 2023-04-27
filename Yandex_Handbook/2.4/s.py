@@ -13,12 +13,18 @@
 """
 
 n = int(input())
-max_value = int(n / 2)
-if n % 2 != 0:
-    max_value += 1
+border = int(n / 2)
 
-print(max_value)
-
-for i in range(1, n + 1):
-    for j in range(1, n + 1):
-        pass
+for i in range(-border, border + 1):
+    if i != 0 or (i == 0 and n % 2 != 0):
+        row = ""
+        for j in range(-border, border + 1):
+            if j != 0 or (j == 0 and n % 2 != 0):
+                value = str(min(border - abs(i) + 1, border - abs(j) + 1))
+                target_width = len(str(border + 1))
+                while len(value) < target_width:
+                    value = " " + value
+                row += value
+                if j < border:
+                    row += " "
+        print(row)
