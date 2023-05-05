@@ -23,3 +23,5 @@ menu = ["Манная", "Гречневая", "Пшённая", "Овсяная"
 
 n = int(input())
 
+for i in range(n):
+    print(menu[i % 5])
