@@ -16,8 +16,9 @@
 Числа вывести в одну строку через пробел.
 """
 
-numbers = list(int(input()))
+numbers = input()
+numbers = numbers.split()
 p = int(input())
 
 for num in numbers:
-    print(num ** p, end=" ")
+    print(int(num) ** p, end=" ")
