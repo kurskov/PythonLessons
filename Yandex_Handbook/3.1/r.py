@@ -23,7 +23,8 @@ count = 1
 
 for item in text:
     if item != last_item:
-        print(f"{last_item} {count}")
+        if last_item != "":
+            print(f"{last_item} {count}")
         last_item = item
         count = 1
     else:
