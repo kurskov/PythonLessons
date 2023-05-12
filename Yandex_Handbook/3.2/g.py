@@ -47,3 +47,12 @@ morse = {'A': '.-', 'B': '-...', 'C': '-.-.',
          'S': '...', 'T': '-', 'U': '..-',
          'V': '...-', 'W': '.--', 'X': '-..-',
          'Y': '-.--', 'Z': '--..'}
+
+text = text.upper()
+words = text.split()
+
+for word in words:
+    letters = list(word)
+    for letter in letters:
+        print(morse[letter], end=" ")
+    print()
