@@ -17,5 +17,7 @@ accumulate «складывает» не только числа.
 from itertools import accumulate
 
 s = input().split()
+for i in range(len(s)):
+    s[i] += " "
 for text in accumulate(s):
-    print(text)
+    print(text[:len(text) - 1])
