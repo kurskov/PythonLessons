@@ -15,4 +15,11 @@
 itertools.product отличный способ, чтобы избавиться от вложенных циклов.
 """
 
+from itertools import product, islice
+
 n = int(input())
+nums = (x for x in range(1, n + 1))
+table = [str(x * y) for x, y in product(nums, repeat=2)]
+
+for i in range(n):
+    print(" ".join(islice(table, n * i, n * (i + 1))))
