@@ -30,6 +30,23 @@
 черви	        червей
 """
 
+from itertools import product
+
 mast = {"буби": "бубен", "пики": "пик", "трефы": "треф", "черви": "червей"}
 num = ["10", "2", "3", "4", "5", "6", "7", "8", "9",
        "валет", "дама", "король", "туз"]
+
+mast_have = input()
+num_del = input()
+
+if mast_have == "черви":
+    del mast["буби"]
+else:
+    del mast["черви"]
+
+del num[num_del]
+
+pairs = list(product(num, mast))
+
+for i in range(10):
+    print()
