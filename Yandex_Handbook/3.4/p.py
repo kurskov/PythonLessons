@@ -44,9 +44,11 @@ if mast_have == "черви":
 else:
     del mast["черви"]
 
-del num[num_del]
+num.remove(num_del)
 
 pairs = list(product(num, mast))
 
 for i in range(10):
-    print()
+    print(" ".join(pairs[i * 3]),
+          " ".join(pairs[i * 3 + 1]),
+          " ".join(pairs[i * 3 + 2]), sep=", ")
