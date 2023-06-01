@@ -30,7 +30,7 @@
 черви	        червей
 """
 
-from itertools import product
+from itertools import product, combinations
 
 mast = {"буби": "бубен", "пики": "пик", "трефы": "треф", "черви": "червей"}
 num = ["10", "2", "3", "4", "5", "6", "7", "8", "9",
@@ -46,9 +46,16 @@ else:
 
 num.remove(num_del)
 
-pairs = list(product(num, mast))
+mast_cycle = list(mast[key] for key in mast)
+num_comb = sorted(list(combinations(num, 3)))
 
 for i in range(10):
-    print(" ".join(pairs[i * 3]),
-          " ".join(pairs[i * 3 + 1]),
-          " ".join(pairs[i * 3 + 2]), sep=", ")
+    print(", ".join(str([val for val in zip(num_comb[i], mast_cycle)])))
+
+# pairs = sorted(list(product(num, [mast[key] for key in mast])))
+# sets = sorted(list(combinations(pairs, 3)))
+
+# for i in range(10):
+#     print(" ".join(str(sets[i * 3])),
+#           " ".join(str(sets[i * 3 + 1])),
+#           " ".join(str(sets[i * 3 + 2])), sep=", ")
