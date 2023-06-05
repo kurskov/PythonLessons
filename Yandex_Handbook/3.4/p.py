@@ -38,24 +38,19 @@ num = ["10", "2", "3", "4", "5", "6", "7", "8", "9",
 
 mast_have = input()
 num_del = input()
-
-if mast_have == "черви":
-    del mast["буби"]
-else:
-    del mast["черви"]
-
 num.remove(num_del)
 
-mast_cycle = list(mast[key] for key in mast)
-num_comb = sorted(list(combinations(num, 3)))
+cards = []
+pairs = list(product(num, list(mast[key] for key in mast)))
+for card in pairs:
+    cards.append(" ".join(card))
+sets = sorted(list(combinations(cards, 3)))
 
-for i in range(10):
-    print(", ".join(str([val for val in zip(num_comb[i], mast_cycle)])))
-
-# pairs = sorted(list(product(num, [mast[key] for key in mast])))
-# sets = sorted(list(combinations(pairs, 3)))
-
-# for i in range(10):
-#     print(" ".join(str(sets[i * 3])),
-#           " ".join(str(sets[i * 3 + 1])),
-#           " ".join(str(sets[i * 3 + 2])), sep=", ")
+count_ = 0
+for item in sets:
+    str_ = ", ".join(item)
+    if str_.count(mast_have[:2]) != 0:
+        print(str_)
+        count_ += 1
+    if count_ == 10:
+        break
