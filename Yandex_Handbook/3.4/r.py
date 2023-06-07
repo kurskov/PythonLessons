@@ -31,4 +31,4 @@ print("a b c f")
 
 for i in range(8):
     a, b, c = map(int, list(bin(i)[2:].zfill(3)))
-    print("%i %i %i %i" % (a, b, c, eval(expression)))
+    print(f"{a} {b} {c} {int(eval(expression))}")

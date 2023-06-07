@@ -18,20 +18,12 @@
 """
 
 expression = input()
-
-abc = set()
-exp_list = list(expression)
-for symbol in exp_list:
-    if symbol.isupper():
-        abc.add(symbol)
-abc = sorted(list(abc))
-
-print(" ".join(abc) + " F")
+abc = sorted(set(symbol for symbol in expression if symbol.isupper()))
+print(" ".join(abc), "F")
 
 vars = dict()
 for i in range(2 ** len(abc)):
     conditions = list(bin(i)[2:].zfill(len(abc)))
-    print(" ".join(conditions), end=" ")
     for j in range(len(abc)):
         vars[abc[j]] = int(conditions[j])
-    print("%i" % eval(expression, vars))
+    print(" ".join(conditions), int(eval(expression, vars)))
