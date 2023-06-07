@@ -39,15 +39,8 @@
 """
 
 expression = input()
-
-# выбираем список переменных
-abc = set()
-exp_symbols = list(expression)
-for symbol in exp_symbols:
-    if symbol.isupper():
-        abc.add(symbol)
-abc = sorted(list(abc))
-print(" ".join(abc) + " F")
+abc = sorted(set(symbol for symbol in expression if symbol.isupper()))
+print(" ".join(abc), "F")
 
 # заменяем в строке неизвестные функции
 exp_items = expression.split()
@@ -65,13 +58,11 @@ for i in range(len(exp_items)):
             exp_items[len(exp_items) - 1] += ")"
 expression = " ".join(exp_items)
 
-# собираем таблицу истинности
 vars = dict()
 for i in range(2 ** len(abc)):
     conditions = list(bin(i)[2:].zfill(len(abc)))
-    print(" ".join(conditions), end=" ")
     for j in range(len(abc)):
         vars[abc[j]] = int(conditions[j])
-    print("%i" % eval(expression, vars))
+    print(" ".join(conditions), int(eval(expression, vars)))
 
-print(expression)
+print(expression) # для наглядности
