@@ -1,5 +1,4 @@
-"""
-Украшение чека
+"""Украшение чека
 
 Давайте приведём в порядок чек, который печатали ранее.
 Все строки должны быть длиной в 35 символов.
@@ -21,7 +20,6 @@
 Внесено:                 <число>руб
 Сдача:                   <число>руб
 ===================================
-
 """
 
 name = input()
@@ -30,9 +28,19 @@ weight = int(input())
 money = int(input())
 
 print("================Чек================")
-print("Товар:" + " " * (29 - len(name)) + name)
-print("Цена:" + " " * (19 - len(str(weight) + str(price))) + str(weight) + "кг * " + str(price) + "руб/кг")
-print("Итого:" + " " * (26 - len(str(weight * price))) + str(weight * price) + "руб")
-print("Внесено:" + " " * (24 - len(str(money))) + str(money) + "руб")
-print("Сдача:" + " " * (26 - len(str(money - weight * price))) + str(money - weight * price) + "руб")
+print("Товар:" +
+      " " * (29 - len(name)) +
+      name)
+print("Цена:" +
+      " " * (19 - len(str(weight) + str(price))) +
+      str(weight) + "кг * " + str(price) + "руб/кг")
+print("Итого:" +
+      " " * (26 - len(str(weight * price))) +
+      str(weight * price) + "руб")
+print("Внесено:" +
+      " " * (24 - len(str(money))) +
+      str(money) + "руб")
+print("Сдача:" +
+      " " * (26 - len(str(money - weight * price))) +
+      str(money - weight * price) + "руб")
 print("===================================")
