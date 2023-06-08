@@ -27,20 +27,12 @@ price = int(input())
 weight = int(input())
 money = int(input())
 
-print("================Чек================")
-print("Товар:" +
-      " " * (29 - len(name)) +
-      name)
+print("=" * 16 + "Чек" + "=" * 16)
+print(f"Товар:{name:>29}")
 print("Цена:" +
       " " * (19 - len(str(weight) + str(price))) +
       str(weight) + "кг * " + str(price) + "руб/кг")
-print("Итого:" +
-      " " * (26 - len(str(weight * price))) +
-      str(weight * price) + "руб")
-print("Внесено:" +
-      " " * (24 - len(str(money))) +
-      str(money) + "руб")
-print("Сдача:" +
-      " " * (26 - len(str(money - weight * price))) +
-      str(money - weight * price) + "руб")
-print("===================================")
+print(f"Итого:{weight * price:>26}руб")
+print(f"Внесено:{money:>24}руб")
+print(f"Сдача:{money - weight * price:>26}руб")
+print("=" * 35)
