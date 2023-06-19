@@ -16,13 +16,16 @@ from sys import stdin
 
 text = []
 for line in stdin:
-    pos = line.find("# ")
-    if pos < 0:
-        text.append(line)
-    elif pos > 0:
-        quotes = line[:pos].count('"')
-        if quotes % 2 == 0:
-            text.append(line[:pos])
+    for index, symbol in enumerate(line):
+        if symbol == "#":
+            if index == 0:
+                break
+            quotes = line[:index].count('"')
+            if quotes % 2 == 0:
+                text.append(line[:index])
+                break
+        if index == len(line) - 1:
+            text.append(line[:-1])
 
 for str in text:
     print(str)
