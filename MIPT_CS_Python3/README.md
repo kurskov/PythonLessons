@@ -12,3 +12,4 @@ https://www.youtube.com/playlist?list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0
 ## Лаборатонные работы
 
 - [1. Практика: Черепаха](Lab_01/)
+- [2. Практика: Робот](Lab_02/)
