@@ -1,43 +1,47 @@
-# import json
+"""Слияние данных
 
-# users_file_name = input()
-# updates_file_name = input()
+Одна местная компания производит обновление данных о пользователях
+и заодно решили реорганизовать систему хранения.
 
-# with open(users_file_name, encoding="UTF-8") as file_input:
-#     users = json.load(file_input)
+Напишите программу, которая обновляет данные о пользователях,
+записанных в JSON файле.
 
-# with open(updates_file_name, encoding="UTF-8") as file_input:
-#     updates = json.load(file_input)
+Формат ввода
+Пользователь вводит два имени файла.
+В первом хранится JSON массив пользователей.
+Во втором — массив новых данных.
+Информация о каждом пользователе представляется JSON объектом,
+в котором обязательно присутствует поле name, описывающее имя пользователя.
+Остальные поля являются дополнительными.
 
+Формат вывода
+В первый файл запишите информацию о пользователях в виде JSON объекта,
+ключами которого выступают имена пользователей, а значениями — объекты
+с информацией о них.
 
-users = [
-    {
-        "name": "Ann",
-        "address": "Flower st."
-    },
-    {
-        "name": "Bob",
-        "address": "Summer st.",
-        "phone": "+7 (123) 456-78-90"
-    }
-]
+Если какая-либо дополнительная информация о пользователе изменяется,
+то требуется сохранить лексикографически большее значение.
+"""
 
-updates = [
-    {
-        "name": "Ann",
-        "address": "Awesome st.",
-        "phone": "+7 (098) 765-43-21"
-    },
-    {
-        "name": "Bob",
-        "address": "Winter st."
-    }
-]
+import json
+
+users_file_name = input()
+updates_file_name = input()
+
+with open(users_file_name, encoding="UTF-8") as file_input:
+    users = json.load(file_input)
+
+with open(updates_file_name, encoding="UTF-8") as file_input:
+    updates = json.load(file_input)
 
 result = dict()
 for user in users:
-    name = user["name"]
-    del user["name"]
-    result[name] = user
+    result[user.pop("name")] = user
 
-print(result)
+for update in updates:
+    name = update.pop("name")
+    for key, value in update.items():
+        result[name][key] = max(result[name].get(key, ""), value)
+
+with open(users_file_name, "w", encoding="UTF-8") as file_output:
+    json.dump(result, file_output, ensure_ascii=False, indent=4)
