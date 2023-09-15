@@ -1,5 +1,7 @@
 # pitch = input()
 
+pitch = 3
+
 upper_low_limit = 65
 upper_high_limit = 91
 lower_low_limit = 97
@@ -11,4 +13,6 @@ output_line = ""
 for letter in input_line:
     if letter.isupper():
         if ord(letter) + pitch < upper_low_limit:
-            output_line += 
+            output_line += chr(upper_high_limit - (pitch - (ord(letter) - upper_low_limit)))
+        else:
+            output_line += chr(ord(letter) + pitch)
