@@ -16,9 +16,9 @@ def compute_area(a_1, a_2, a_3):
     return area
 
 
-def compute_med(a, b ,c):
+def compute_med(a, b, c):
 
-    med = sqrt(2 * (b**2 + c**2)- a**2) / 2
+    med = sqrt(2 * (b**2 + c**2) - a**2) / 2
 
     return med
 
@@ -45,6 +45,7 @@ else:
 
     r_in = 2 * s / p
     r_out = (a * b * c) / (4 * s)
-    sum_med = compute_med(a, b, c) + compute_med(b, c, a) + compute_med(c, a, b)
+    sum_med = (compute_med(a, b, c) + compute_med(b, c, a) +
+               compute_med(c, a, b))
 
     print(round(r_in, 4), round(r_out, 4), round(sum_med, 4))
