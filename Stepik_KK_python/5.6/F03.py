@@ -8,7 +8,7 @@
 n = int(input())
 
 for i in range(2, n):
-    for j in range(2, i // 2 + 1):
+    for j in range(2, int(i ** 0.5) + 1):
         if not (i % j):
             break
     else:
