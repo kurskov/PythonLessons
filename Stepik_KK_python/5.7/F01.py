@@ -10,6 +10,7 @@ for row in range(n):
     for cell in range(1, row):
         TP[row][cell] = TP[row - 1][cell - 1] + TP[row - 1][cell]
 
-width = len(' '.join(map(str, TP[-1])))
+width = len(" ".join(map(str, TP[-1])))
+lines = [f"{" ".join(map(str, line)):^{width}}" for line in TP]
 
-print(*[f"{" ".join(map(str, line)):^{width}}" for line in TP], sep="\n")
+print(*lines, sep="\n")
